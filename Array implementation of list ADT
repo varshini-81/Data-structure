@@ -1,0 +1,94 @@
+#include <stdio.h>
+#define max 5
+int arr[max], i, n;
+void create() 
+{
+  printf("Enter no of elements: ");
+  scanf("%d",&n);
+  if(n<max)
+  {
+    for(i=0;i<n;i++)
+      {
+        scanf("%d",&arr[i]);
+      }
+  }
+  else
+    {
+      printf("overflow");}
+  
+}
+void insert() 
+{
+  if(n<max)
+  {
+    scanf("%d",&arr[n++]);
+
+  }
+  else
+  {
+    printf(" overflow");
+    
+  }
+}
+void display() 
+{
+  printf("The inserted elements are ");
+  for(i=0;i<n;i++)
+    {
+      printf("%d",arr[i]);
+    }
+}
+void delete() 
+{
+  if(n>0)
+  {int cho;
+  printf("Enter the position of element to be deleted");
+  scanf("%d", &cho);
+  for(i=cho-1;i<n;i++)
+    { arr[i]=arr[i+1];
+      
+    }
+  n=n-1;}
+  else
+  {
+    printf("underflow");
+  }
+  
+}
+void search()
+{
+  int cho;
+  for(i=0;i<n;i++)
+ {
+  if(cho==arr[i])
+  {
+    printf("element found at position %d %d",i,arr[i]);
+  }}
+  else
+  {
+    printf("Element not found in the given array of elements");
+  }
+}
+int main()
+{
+  int cho;
+  do{
+    switch(cho)
+      {
+        case 1: create() ;
+        break;
+        case 2: insert();
+         break;
+        
+        case 3: display ();
+        break;
+       
+        case 4: delete();
+        break;
+        
+        case 5: search();
+        break;
+      }
+  } while(cho!=6); // Add missing closing brace
+  return 0; // Ensure main function returns an integer value
+}
